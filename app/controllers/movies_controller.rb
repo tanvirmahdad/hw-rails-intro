@@ -8,6 +8,7 @@ class MoviesController < ApplicationController
   
     def index
       @movies = Movie.all
+      @sortedMov=Movie.all(order: 'release_date')
     end
   
     def new
