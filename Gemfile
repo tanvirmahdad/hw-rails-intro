@@ -12,6 +12,7 @@ gem 'uglifier', '>= 1.3.0'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 gem 'pg', '~> 0.20'
+gem 'sqlite3', '~> 1.3.13'
 
 
 # Use Unicorn as the app server
@@ -31,7 +32,7 @@ group :development, :test do
   gem 'guard-rspec'
 
   # Use sqlite3 as the database for Active Record
-  gem 'sqlite3', '~> 1.3.6'
+ # gem 'sqlite3', '~> 1.3.13'
 
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'

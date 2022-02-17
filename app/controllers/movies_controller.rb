@@ -1,4 +1,6 @@
 class MoviesController < ApplicationController
+    
+    
 
     def show
       id = params[:id] # retrieve movie ID from URI route
@@ -7,9 +9,11 @@ class MoviesController < ApplicationController
     end
   
     def index
-      @movies = Movie.all
+      @movParam=params[:sort]
+      @movies = Movie.order(params[:sort])
     end
-  
+    
+   
     def new
       # default: render 'new' template
     end
