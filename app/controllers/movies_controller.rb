@@ -10,7 +10,12 @@ class MoviesController < ApplicationController
   
     def index
       @movParam=params[:sort]
-      @movies = Movie.order(params[:sort])
+      @all_ratings=Movie.ratingRetriver
+      if(params[:ratings])
+        @movies = Movie.where("rating IN (?)", params[:ratings].keys).order(params[:sort])
+      else
+        @movies = Movie.order(params[:sort])
+      end
     end
     
    
