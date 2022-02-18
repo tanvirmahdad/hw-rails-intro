@@ -11,10 +11,14 @@ class MoviesController < ApplicationController
     def index
       @movParam=params[:sort]
       @all_ratings=Movie.ratingRetriver
+     
       if(params[:ratings])
-        @movies = Movie.where("rating IN (?)", params[:ratings].keys).order(params[:sort])
+        #@movies = Movie.where("rating IN (?)", params[:ratings].keys).order(params[:sort])
+        @movies=Movie.with_ratings(params[:ratings].keys)
+        @is_rating_present=params[:ratings]
       else
         @movies = Movie.order(params[:sort])
+        @is_rating_present=[]
       end
     end
     

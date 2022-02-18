@@ -2486,3 +2486,420 @@ Processing by MoviesController#index as HTML
 Completed 200 OK in 21ms (Views: 19.1ms | ActiveRecord: 0.4ms)
 
 
+Started GET "/" for 165.91.13.172 at 2022-02-18 17:50:39 +0000
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MoviesController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT DISTINCT "movies"."rating" FROM "movies"[0m
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  Rendered movies/index.html.erb within layouts/application (12.5ms)
+  Rendered layouts/_flash.erb (0.5ms)
+Completed 200 OK in 237ms (Views: 231.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 165.91.13.172 at 2022-02-18 17:50:39 +0000
+Started GET "/movies?utf8=%E2%9C%93&ratings%5BG%5D=1&commit=Refresh" for 165.91.13.172 at 2022-02-18 17:50:45 +0000
+Processing by MoviesController#index as HTML
+  Parameters: {"utf8"=>"✓", "ratings"=>{"G"=>"1"}, "commit"=>"Refresh"}
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT DISTINCT "movies"."rating" FROM "movies"[0m
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE (rating IN ('G'))[0m
+  Rendered movies/index.html.erb within layouts/application (3.8ms)
+  Rendered layouts/_flash.erb (0.4ms)
+Completed 200 OK in 23ms (Views: 18.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/movies?utf8=%E2%9C%93&ratings%5BPG-13%5D=1&commit=Refresh" for 165.91.13.172 at 2022-02-18 17:50:50 +0000
+Processing by MoviesController#index as HTML
+  Parameters: {"utf8"=>"✓", "ratings"=>{"PG-13"=>"1"}, "commit"=>"Refresh"}
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT DISTINCT "movies"."rating" FROM "movies"[0m
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE (rating IN ('PG-13'))[0m
+  Rendered movies/index.html.erb within layouts/application (3.6ms)
+  Rendered layouts/_flash.erb (0.5ms)
+Completed 200 OK in 50ms (Views: 47.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/movies?utf8=%E2%9C%93&ratings%5BG%5D=1&ratings%5BR%5D=1&ratings%5BPG-13%5D=1&ratings%5BPG%5D=1&commit=Refresh" for 165.91.13.172 at 2022-02-18 17:50:55 +0000
+Processing by MoviesController#index as HTML
+  Parameters: {"utf8"=>"✓", "ratings"=>{"G"=>"1", "R"=>"1", "PG-13"=>"1", "PG"=>"1"}, "commit"=>"Refresh"}
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT DISTINCT "movies"."rating" FROM "movies"[0m
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE (rating IN ('G','R','PG-13','PG'))[0m
+  Rendered movies/index.html.erb within layouts/application (5.8ms)
+  Rendered layouts/_flash.erb (0.3ms)
+Completed 200 OK in 27ms (Views: 24.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/?sort=release_date" for 165.91.13.172 at 2022-02-18 17:51:00 +0000
+Processing by MoviesController#index as HTML
+  Parameters: {"sort"=>"release_date"}
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT DISTINCT "movies"."rating" FROM "movies"[0m
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies" ORDER BY release_date[0m
+  Rendered movies/index.html.erb within layouts/application (5.5ms)
+  Rendered layouts/_flash.erb (0.4ms)
+Completed 200 OK in 24ms (Views: 21.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/?sort=release_date" for 165.91.13.172 at 2022-02-18 17:51:01 +0000
+Processing by MoviesController#index as HTML
+  Parameters: {"sort"=>"release_date"}
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT DISTINCT "movies"."rating" FROM "movies"[0m
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies" ORDER BY release_date[0m
+  Rendered movies/index.html.erb within layouts/application (5.9ms)
+  Rendered layouts/_flash.erb (0.5ms)
+Completed 200 OK in 24ms (Views: 22.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/?sort=title" for 165.91.13.172 at 2022-02-18 17:51:02 +0000
+Processing by MoviesController#index as HTML
+  Parameters: {"sort"=>"title"}
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT DISTINCT "movies"."rating" FROM "movies"[0m
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies" ORDER BY title[0m
+  Rendered movies/index.html.erb within layouts/application (5.4ms)
+  Rendered layouts/_flash.erb (0.4ms)
+Completed 200 OK in 33ms (Views: 30.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/movies?utf8=%E2%9C%93&ratings%5BG%5D=1&commit=Refresh" for 165.91.13.172 at 2022-02-18 17:51:35 +0000
+Processing by MoviesController#index as HTML
+  Parameters: {"utf8"=>"✓", "ratings"=>{"G"=>"1"}, "commit"=>"Refresh"}
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT DISTINCT "movies"."rating" FROM "movies"[0m
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE (rating IN ('G'))[0m
+  Rendered movies/index.html.erb within layouts/application (3.4ms)
+  Rendered layouts/_flash.erb (0.3ms)
+Completed 200 OK in 21ms (Views: 18.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 165.91.13.172 at 2022-02-18 18:18:10 +0000
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MoviesController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT DISTINCT "movies"."rating" FROM "movies"[0m
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  Rendered movies/index.html.erb within layouts/application (19.7ms)
+  Rendered layouts/_flash.erb (0.4ms)
+Completed 200 OK in 241ms (Views: 235.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/movies?utf8=%E2%9C%93&ratings%5BG%5D=1&commit=Refresh" for 165.91.13.172 at 2022-02-18 18:18:15 +0000
+Processing by MoviesController#index as HTML
+  Parameters: {"utf8"=>"✓", "ratings"=>{"G"=>"1"}, "commit"=>"Refresh"}
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT DISTINCT "movies"."rating" FROM "movies"[0m
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE (rating IN ('G'))[0m
+  Rendered movies/index.html.erb within layouts/application (3.5ms)
+  Rendered layouts/_flash.erb (0.3ms)
+Completed 200 OK in 22ms (Views: 18.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/movies?utf8=%E2%9C%93&ratings%5BR%5D=1&commit=Refresh" for 165.91.13.172 at 2022-02-18 18:18:19 +0000
+Processing by MoviesController#index as HTML
+  Parameters: {"utf8"=>"✓", "ratings"=>{"R"=>"1"}, "commit"=>"Refresh"}
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT DISTINCT "movies"."rating" FROM "movies"[0m
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE (rating IN ('R'))[0m
+  Rendered movies/index.html.erb within layouts/application (3.5ms)
+  Rendered layouts/_flash.erb (0.4ms)
+Completed 200 OK in 21ms (Views: 18.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/movies?utf8=%E2%9C%93&ratings%5BPG-13%5D=1&commit=Refresh" for 165.91.13.172 at 2022-02-18 18:18:21 +0000
+Processing by MoviesController#index as HTML
+  Parameters: {"utf8"=>"✓", "ratings"=>{"PG-13"=>"1"}, "commit"=>"Refresh"}
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT DISTINCT "movies"."rating" FROM "movies"[0m
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE (rating IN ('PG-13'))[0m
+  Rendered movies/index.html.erb within layouts/application (3.9ms)
+  Rendered layouts/_flash.erb (0.4ms)
+Completed 200 OK in 43ms (Views: 40.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/?sort=title" for 165.91.13.172 at 2022-02-18 18:18:23 +0000
+Processing by MoviesController#index as HTML
+  Parameters: {"sort"=>"title"}
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT DISTINCT "movies"."rating" FROM "movies"[0m
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies" ORDER BY title[0m
+  Rendered movies/index.html.erb within layouts/application (5.5ms)
+  Rendered layouts/_flash.erb (0.3ms)
+Completed 200 OK in 22ms (Views: 19.3ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/movies?utf8=%E2%9C%93&ratings%5BPG%5D=1&commit=Refresh" for 165.91.13.172 at 2022-02-18 18:18:26 +0000
+Processing by MoviesController#index as HTML
+  Parameters: {"utf8"=>"✓", "ratings"=>{"PG"=>"1"}, "commit"=>"Refresh"}
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT DISTINCT "movies"."rating" FROM "movies"[0m
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE (rating IN ('PG'))[0m
+  Rendered movies/index.html.erb within layouts/application (3.1ms)
+  Rendered layouts/_flash.erb (0.3ms)
+Completed 200 OK in 20ms (Views: 17.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/movies?utf8=%E2%9C%93&ratings%5BG%5D=1&ratings%5BR%5D=1&ratings%5BPG-13%5D=1&commit=Refresh" for 165.91.13.172 at 2022-02-18 18:18:32 +0000
+Processing by MoviesController#index as HTML
+  Parameters: {"utf8"=>"✓", "ratings"=>{"G"=>"1", "R"=>"1", "PG-13"=>"1"}, "commit"=>"Refresh"}
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT DISTINCT "movies"."rating" FROM "movies"[0m
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE (rating IN ('G','R','PG-13'))[0m
+  Rendered movies/index.html.erb within layouts/application (4.5ms)
+  Rendered layouts/_flash.erb (0.3ms)
+Completed 200 OK in 21ms (Views: 18.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/movies?utf8=%E2%9C%93&ratings%5BG%5D=1&ratings%5BR%5D=1&ratings%5BPG-13%5D=1&ratings%5BPG%5D=1&commit=Refresh" for 165.91.13.172 at 2022-02-18 18:20:19 +0000
+Processing by MoviesController#index as HTML
+  Parameters: {"utf8"=>"✓", "ratings"=>{"G"=>"1", "R"=>"1", "PG-13"=>"1", "PG"=>"1"}, "commit"=>"Refresh"}
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT DISTINCT "movies"."rating" FROM "movies"[0m
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE (rating IN ('G','R','PG-13','PG'))[0m
+  Rendered movies/index.html.erb within layouts/application (5.0ms)
+  Rendered layouts/_flash.erb (0.4ms)
+Completed 200 OK in 25ms (Views: 22.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 165.91.13.172 at 2022-02-18 18:25:55 +0000
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MoviesController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT DISTINCT "movies"."rating" FROM "movies"[0m
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  Rendered movies/index.html.erb within layouts/application (11.1ms)
+  Rendered layouts/_flash.erb (0.4ms)
+Completed 200 OK in 218ms (Views: 213.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 165.91.13.172 at 2022-02-18 18:40:05 +0000
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MoviesController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT DISTINCT "movies"."rating" FROM "movies"[0m
+  Rendering movies/index.html.erb within layouts/application
+  Rendered movies/index.html.erb within layouts/application (0.7ms)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.4ms)
+
+
+  
+SyntaxError (/home/ec2-user/environment/hw-rails-intro/app/views/movies/index.html.erb:12: syntax error, unexpected ':', expecting ')'
+...esh', :id => 'ratings_submit' :class => 'btn btn-primary' );...
+...                              ^):
+  
+app/views/movies/index.html.erb:12: syntax error, unexpected ':', expecting ')'
+Started GET "/" for 165.91.13.172 at 2022-02-18 18:40:21 +0000
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MoviesController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT DISTINCT "movies"."rating" FROM "movies"[0m
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  Rendered movies/index.html.erb within layouts/application (12.9ms)
+  Rendered layouts/_flash.erb (0.5ms)
+Completed 200 OK in 245ms (Views: 241.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 165.91.13.172 at 2022-02-18 18:44:50 +0000
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MoviesController#index as HTML
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT DISTINCT "movies"."rating" FROM "movies"[0m
+  Rendering movies/index.html.erb within layouts/application
+  Rendered movies/index.html.erb within layouts/application (0.7ms)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.4ms)
+
+
+  
+SyntaxError (/home/ec2-user/environment/hw-rails-intro/app/views/movies/index.html.erb:10: syntax error, unexpected ')', expecting '}'
+..."question_syllabus_reference" );@output_buffer.safe_append='
+...                              ^
+/home/ec2-user/environment/hw-rails-intro/app/views/movies/index.html.erb:11: syntax error, unexpected end, expecting ')'
+'.freeze;   end 
+            ^~~
+/home/ec2-user/environment/hw-rails-intro/app/views/movies/index.html.erb:13: syntax error, unexpected end, expecting ')'
+'.freeze; end 
+          ^~~
+/home/ec2-user/environment/hw-rails-intro/app/views/movies/index.html.erb:26: syntax error, unexpected do (for block), expecting ')'
+'.freeze;     @movies.each do |movie| 
+                           ^~
+/home/ec2-user/environment/hw-rails-intro/app/views/movies/index.html.erb:41: syntax error, unexpected end, expecting ')'
+'.freeze;     end 
+              ^~~
+/home/ec2-user/environment/hw-rails-intro/app/views/movies/index.html.erb:46: syntax error, unexpected ensure, expecting ')'
+          ensure
+          ^~~~~~
+/home/ec2-user/environment/hw-rails-intro/app/views/movies/index.html.erb:48: syntax error, unexpected end, expecting ')'
+          end
+          ^~~):
+  
+app/views/movies/index.html.erb:10: syntax error, unexpected ')', expecting '}'
+app/views/movies/index.html.erb:11: syntax error, unexpected end, expecting ')'
+app/views/movies/index.html.erb:13: syntax error, unexpected end, expecting ')'
+app/views/movies/index.html.erb:26: syntax error, unexpected do (for block), expecting ')'
+app/views/movies/index.html.erb:41: syntax error, unexpected end, expecting ')'
+app/views/movies/index.html.erb:46: syntax error, unexpected ensure, expecting ')'
+app/views/movies/index.html.erb:48: syntax error, unexpected end, expecting ')'
+Started GET "/" for 165.91.13.172 at 2022-02-18 18:45:13 +0000
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MoviesController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT DISTINCT "movies"."rating" FROM "movies"[0m
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  Rendered movies/index.html.erb within layouts/application (11.4ms)
+  Rendered layouts/_flash.erb (0.4ms)
+Completed 200 OK in 239ms (Views: 234.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 165.91.13.172 at 2022-02-18 18:46:22 +0000
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MoviesController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT DISTINCT "movies"."rating" FROM "movies"[0m
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  Rendered movies/index.html.erb within layouts/application (11.6ms)
+  Rendered layouts/_flash.erb (0.4ms)
+Completed 200 OK in 222ms (Views: 217.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 165.91.13.172 at 2022-02-18 18:49:47 +0000
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MoviesController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT DISTINCT "movies"."rating" FROM "movies"[0m
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mMovie Load (0.1ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mMovie Load (0.1ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mMovie Load (0.1ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mMovie Load (0.1ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mMovie Load (0.1ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mMovie Load (0.1ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mMovie Load (0.1ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" LIMIT ?[0m  [["LIMIT", 11]]
+  Rendered movies/index.html.erb within layouts/application (44.6ms)
+Completed 500 Internal Server Error in 53ms (ActiveRecord: 1.8ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `checked' for #<#<Class:0x00000000043a9518>:0x00000000043bc208>
+Did you mean?  check_box):
+     7:   Include:
+     8:   <% @all_ratings.each do |rating| %>
+     9:     <%= rating %>
+    10:     <%= check_box_tag "ratings[#{rating}]", checked %>
+    11:   <% end %>
+    12:   <%= submit_tag 'Refresh', :id => 'ratings_submit', :class => 'btn btn-primary' %>
+    13: <% end %>
+  
+app/views/movies/index.html.erb:10:in `block (2 levels) in _app_views_movies_index_html_erb__969818026235786054_35477540'
+app/views/movies/index.html.erb:8:in `each'
+app/views/movies/index.html.erb:8:in `block in _app_views_movies_index_html_erb__969818026235786054_35477540'
+app/views/movies/index.html.erb:6:in `_app_views_movies_index_html_erb__969818026235786054_35477540'
+Started GET "/" for 165.91.13.172 at 2022-02-18 18:50:35 +0000
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MoviesController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT DISTINCT "movies"."rating" FROM "movies"[0m
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  Rendered movies/index.html.erb within layouts/application (11.0ms)
+  Rendered layouts/_flash.erb (0.4ms)
+Completed 200 OK in 227ms (Views: 222.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/movies?utf8=%E2%9C%93&ratings%5BG%5D=true&commit=Refresh" for 165.91.13.172 at 2022-02-18 18:50:40 +0000
+Processing by MoviesController#index as HTML
+  Parameters: {"utf8"=>"✓", "ratings"=>{"G"=>"true"}, "commit"=>"Refresh"}
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT DISTINCT "movies"."rating" FROM "movies"[0m
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE (rating IN ('G'))[0m
+  Rendered movies/index.html.erb within layouts/application (3.6ms)
+  Rendered layouts/_flash.erb (0.4ms)
+Completed 200 OK in 22ms (Views: 19.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/movies?utf8=%E2%9C%93&ratings%5BR%5D=true&commit=Refresh" for 165.91.13.172 at 2022-02-18 18:50:43 +0000
+Processing by MoviesController#index as HTML
+  Parameters: {"utf8"=>"✓", "ratings"=>{"R"=>"true"}, "commit"=>"Refresh"}
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT DISTINCT "movies"."rating" FROM "movies"[0m
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE (rating IN ('R'))[0m
+  Rendered movies/index.html.erb within layouts/application (3.4ms)
+  Rendered layouts/_flash.erb (0.3ms)
+Completed 200 OK in 21ms (Views: 18.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/movies?utf8=%E2%9C%93&ratings%5BG%5D=true&ratings%5BR%5D=true&ratings%5BPG-13%5D=true&ratings%5BPG%5D=true&commit=Refresh" for 165.91.13.172 at 2022-02-18 18:50:57 +0000
+Processing by MoviesController#index as HTML
+  Parameters: {"utf8"=>"✓", "ratings"=>{"G"=>"true", "R"=>"true", "PG-13"=>"true", "PG"=>"true"}, "commit"=>"Refresh"}
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT DISTINCT "movies"."rating" FROM "movies"[0m
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE (rating IN ('G','R','PG-13','PG'))[0m
+  Rendered movies/index.html.erb within layouts/application (26.7ms)
+  Rendered layouts/_flash.erb (0.4ms)
+Completed 200 OK in 46ms (Views: 43.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 165.91.13.172 at 2022-02-18 19:00:30 +0000
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MoviesController#index as HTML
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT DISTINCT "movies"."rating" FROM "movies"[0m
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  Rendered movies/index.html.erb within layouts/application (11.3ms)
+  Rendered layouts/_flash.erb (0.6ms)
+Completed 200 OK in 247ms (Views: 242.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/movies?utf8=%E2%9C%93&ratings%5BG%5D=G&commit=Refresh" for 165.91.13.172 at 2022-02-18 19:00:35 +0000
+Processing by MoviesController#index as HTML
+  Parameters: {"utf8"=>"✓", "ratings"=>{"G"=>"G"}, "commit"=>"Refresh"}
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT DISTINCT "movies"."rating" FROM "movies"[0m
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE (rating IN ('G'))[0m
+  Rendered movies/index.html.erb within layouts/application (3.5ms)
+  Rendered layouts/_flash.erb (0.3ms)
+Completed 200 OK in 20ms (Views: 17.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 165.91.13.172 at 2022-02-18 19:14:30 +0000
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MoviesController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT DISTINCT "movies"."rating" FROM "movies"[0m
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  Rendered movies/index.html.erb within layouts/application (13.0ms)
+  Rendered layouts/_flash.erb (0.6ms)
+Completed 200 OK in 232ms (Views: 227.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/movies?utf8=%E2%9C%93&ratings%5BG%5D=G&ratings%5BR%5D=R&commit=Refresh" for 165.91.13.172 at 2022-02-18 19:14:35 +0000
+Processing by MoviesController#index as HTML
+  Parameters: {"utf8"=>"✓", "ratings"=>{"G"=>"G", "R"=>"R"}, "commit"=>"Refresh"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT DISTINCT "movies"."rating" FROM "movies"[0m
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE (rating IN ('G','R'))[0m
+  Rendered movies/index.html.erb within layouts/application (4.3ms)
+  Rendered layouts/_flash.erb (0.4ms)
+Completed 200 OK in 21ms (Views: 18.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/movies?utf8=%E2%9C%93&ratings%5BPG%5D=PG&commit=Refresh" for 165.91.13.172 at 2022-02-18 19:14:41 +0000
+Processing by MoviesController#index as HTML
+  Parameters: {"utf8"=>"✓", "ratings"=>{"PG"=>"PG"}, "commit"=>"Refresh"}
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT DISTINCT "movies"."rating" FROM "movies"[0m
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.1ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE (rating IN ('PG'))[0m
+  Rendered movies/index.html.erb within layouts/application (3.2ms)
+  Rendered layouts/_flash.erb (0.4ms)
+Completed 200 OK in 20ms (Views: 16.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/movies?utf8=%E2%9C%93&ratings%5BPG-13%5D=PG-13&ratings%5BPG%5D=PG&commit=Refresh" for 165.91.13.172 at 2022-02-18 19:14:44 +0000
+Processing by MoviesController#index as HTML
+  Parameters: {"utf8"=>"✓", "ratings"=>{"PG-13"=>"PG-13", "PG"=>"PG"}, "commit"=>"Refresh"}
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT DISTINCT "movies"."rating" FROM "movies"[0m
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE (rating IN ('PG-13','PG'))[0m
+  Rendered movies/index.html.erb within layouts/application (3.7ms)
+  Rendered layouts/_flash.erb (0.4ms)
+Completed 200 OK in 42ms (Views: 39.7ms | ActiveRecord: 0.3ms)
+
+
