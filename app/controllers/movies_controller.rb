@@ -10,21 +10,30 @@ class MoviesController < ApplicationController
   
     def index
       
+      
+      
       @@visitCount +=1;
       @instanceCount=@@visitCount
-      @movParam=params[:sort]
+      
+      if(params[:sort])
+        session[:sort]=params[:sort]
+      elsif (@instanceCount==1)
+        session[:sort].clear
+      end
+      
+      @movParam=session[:sort]
       @all_ratings=Movie.ratingRetriver
-      logger.debug " hash: #{params[:sort].inspect}"
+      logger.debug " hash: #{session[:sort].inspect}"
      
     
       if(params[:ratings])
         #@movies = Movie.where("rating IN (?)", params[:ratings].keys).order(params[:sort])
-        @movies=Movie.with_ratings(params[:ratings].keys)
+        @movies=Movie.with_ratings(params[:ratings].keys).order(session[:sort])
         @is_rating_present=params[:ratings]
         #logger.debug " hash: #{@instanceCount.inspect}"
         
       else
-        @movies = Movie.order(params[:sort])
+        @movies = Movie.order(session[:sort])
         @is_rating_present=[]
         #logger.info "Hey wor"
       end
