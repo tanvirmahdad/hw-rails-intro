@@ -23,19 +23,24 @@ class MoviesController < ApplicationController
       
       @movParam=session[:sort]
       @all_ratings=Movie.ratingRetriver
-      logger.debug " hash: #{session[:sort].inspect}"
+      #logger.debug " hash: #{session[:sort].inspect}"
+      
+      if(params[:ratings])
+        session[:ratings]=params[:ratings]
+      elsif (@instanceCount==1)
+        session[:ratings]=nil
+      end
      
     
-      if(params[:ratings])
+      if(session[:ratings])
         #@movies = Movie.where("rating IN (?)", params[:ratings].keys).order(params[:sort])
-        @movies=Movie.with_ratings(params[:ratings].keys).order(session[:sort])
-        @is_rating_present=params[:ratings]
-        #logger.debug " hash: #{@instanceCount.inspect}"
-        
+        @movies=Movie.with_ratings(session[:ratings].keys).order(session[:sort])
+        @is_rating_present=session[:ratings]
+        logger.debug " hash: #{params[:ratings].inspect}"
+        #logger.info "Hey I am here"
       else
         @movies = Movie.order(session[:sort])
         @is_rating_present=[]
-        #logger.info "Hey wor"
       end
     end
     
