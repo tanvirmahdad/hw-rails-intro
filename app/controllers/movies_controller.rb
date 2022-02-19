@@ -14,6 +14,7 @@ class MoviesController < ApplicationController
       @instanceCount=@@visitCount
       @movParam=params[:sort]
       @all_ratings=Movie.ratingRetriver
+      logger.debug " hash: #{params[:sort].inspect}"
      
     
       if(params[:ratings])
