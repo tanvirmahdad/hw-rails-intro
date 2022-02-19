@@ -12,7 +12,7 @@ gem 'uglifier', '>= 1.3.0'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 gem 'pg', '~> 0.20'
-gem 'sqlite3', '~> 1.3.13'
+#gem 'sqlite3', '~> 1.3.13'
 
 
 # Use Unicorn as the app server
