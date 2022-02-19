@@ -1,6 +1,6 @@
 class MoviesController < ApplicationController
     
-    
+    @@visitCount=0
 
     def show
       id = params[:id] # retrieve movie ID from URI route
@@ -9,16 +9,23 @@ class MoviesController < ApplicationController
     end
   
     def index
+      
+      @@visitCount +=1;
+      @instanceCount=@@visitCount
       @movParam=params[:sort]
       @all_ratings=Movie.ratingRetriver
      
+    
       if(params[:ratings])
         #@movies = Movie.where("rating IN (?)", params[:ratings].keys).order(params[:sort])
         @movies=Movie.with_ratings(params[:ratings].keys)
         @is_rating_present=params[:ratings]
+        #logger.debug " hash: #{@instanceCount.inspect}"
+        
       else
         @movies = Movie.order(params[:sort])
         @is_rating_present=[]
+        #logger.info "Hey wor"
       end
     end
     
