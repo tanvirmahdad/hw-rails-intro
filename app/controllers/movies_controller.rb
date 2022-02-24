@@ -15,33 +15,52 @@ class MoviesController < ApplicationController
       @@visitCount +=1;
       @instanceCount=@@visitCount
       
+      #logger.debug " hash: #{request.env["HTTP_REFERER"].inspect}"
+      
       if(params[:sort])
         session[:sort]=params[:sort]
       elsif (@instanceCount==1)
         session[:sort].clear
+      #else
+        #params[:sort]=session[:sort]
+        #redirect_to action
+        #flash.keep
+        #redirect_to controller: 'movies', action: 'index' && return
       end
       
       @movParam=session[:sort]
       @all_ratings=Movie.ratingRetriver
-      #logger.debug " hash: #{session[:sort].inspect}"
+      #logger.debug " hash: #{@all_ratings.inspect}"
+      
+      
       
       if(params[:ratings])
         session[:ratings]=params[:ratings]
       elsif (@instanceCount==1)
         session[:ratings]=nil
       end
+      
+      
      
     
       if(session[:ratings])
         #@movies = Movie.where("rating IN (?)", params[:ratings].keys).order(params[:sort])
         @movies=Movie.with_ratings(session[:ratings].keys).order(session[:sort])
         @is_rating_present=session[:ratings]
-        logger.debug " hash: #{params[:ratings].inspect}"
+        #logger.debug " hash: #{params[:ratings].inspect}"
         #logger.info "Hey I am here"
       else
         @movies = Movie.order(session[:sort])
         @is_rating_present=[]
       end
+      
+      if !(params[:sort]) || (params[:ratings]==nil)
+        params[:sort]=session[:sort]
+        params[:ratings]=session[:ratings]
+        redirect_to controller: 'movies', action: 'index', sort: params[:sort], "utf8": "✓", "ratings": (params[:ratings])? params[:ratings].to_unsafe_h : {"G"=>"G", "R"=>"R", "PG-13"=>"PG-13", "PG"=>"PG"}
+      end
+      
+      
     end
     
    
