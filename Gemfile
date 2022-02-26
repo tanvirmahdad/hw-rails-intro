@@ -13,6 +13,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 gem 'pg', '~> 0.20'
 #gem 'sqlite3', '~> 1.3.13'
+#temporarily deactivated sqlite gem
 
 
 # Use Unicorn as the app server
