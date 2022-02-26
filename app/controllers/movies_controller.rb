@@ -15,12 +15,16 @@ class MoviesController < ApplicationController
       @@visitCount +=1;
       @instanceCount=@@visitCount
       
-      #logger.debug " hash: #{request.env["HTTP_REFERER"].inspect}"
+      if(@instanceCount==1)
+        flash[:url]=nil
+      end
+      
+      #logger.debug " hash: #{session[:sort].inspect}"
       
       if(params[:sort])
         session[:sort]=params[:sort]
       elsif (@instanceCount==1)
-        session[:sort].clear
+        session[:sort]=nil
       #else
         #params[:sort]=session[:sort]
         #redirect_to action
@@ -54,10 +58,27 @@ class MoviesController < ApplicationController
         @is_rating_present=[]
       end
       
+      
+      #logger.debug " hash: #{params[:sort].inspect}"
+      #logger.debug " hash: #{params[:ratings].inspect}"
+      
       if !(params[:sort]) || (params[:ratings]==nil)
         params[:sort]=session[:sort]
         params[:ratings]=session[:ratings]
-        redirect_to controller: 'movies', action: 'index', sort: params[:sort], "utf8": "✓", "ratings": (params[:ratings])? params[:ratings].to_unsafe_h : {"G"=>"G", "R"=>"R", "PG-13"=>"PG-13", "PG"=>"PG"}
+        
+        #logger.debug " URL: #{request.url.inspect}"
+        #logger.debug " Referer: #{request.referer.inspect}"
+        
+        
+        
+        logger.debug " FLASH!!: #{flash[:url].inspect}"
+        if(flash[:url]!="redirected")
+          redirect_to controller: 'movies', action: 'index', sort: params[:sort], "utf8": "✓", "ratings": (params[:ratings])? params[:ratings].to_unsafe_h : {"G"=>"G", "R"=>"R", "PG-13"=>"PG-13", "PG"=>"PG"}
+          flash[:url]="redirected"
+        end
+        return
+      else
+        flash[:url]="reset"
       end
       
       
